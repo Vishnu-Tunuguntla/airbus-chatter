@@ -14,11 +14,11 @@ cursor = conn.cursor()
 create_shuttles_table = """
 CREATE TABLE Shuttles (
     ShuttleID SERIAL PRIMARY KEY,
-    DestinationType VARCHAR(10) CHECK (DestinationType IN ('DEPARTING', 'ARRIVING')),
-    Location VARCHAR(10) CHECK (Location IN ('DULLES', 'RICHMOND')),
+    DestinationType TEXT,
+    Location TEXT,
     PickupLocation TEXT,
     DropoffLocation TEXT,
-    PickupTime TIMESTAMP,
+    PickupTime TEXT,
     OptionalInformation TEXT
 )
 """
