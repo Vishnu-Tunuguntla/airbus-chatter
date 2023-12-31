@@ -20,6 +20,14 @@ try:
     cursor.close()
     for row in records:
         print(row)
+    cursor = conn.cursor()
+    query = "SELECT * FROM Passengers"
+    cursor.execute(query)
+    records = cursor.fetchall()
+    cursor.close
+    for row in records:
+        print(row)
+
 
 except psycopg2.Error as e:
     print(f"An error occurred: {e}")

@@ -13,40 +13,38 @@ cursor = conn.cursor()
 # SQL to create Shuttles Table
 create_shuttles_table = """
 CREATE TABLE Shuttles (
-    ShuttleID SERIAL PRIMARY KEY,
-    DestinationType TEXT,
-    Location TEXT,
-    PickupLocation TEXT,
-    DropoffLocation TEXT,
+    ShuttleID TEXT PRIMARY KEY,
+    Route TEXT,
     PickupTime TEXT,
     OptionalInformation TEXT
 )
 """
 
 # SQL to create Status Table
-create_status_table = """
-CREATE TABLE Status (
-    StatusID SERIAL PRIMARY KEY,
-    StatusFlag VARCHAR(255)
+create_request_table = """
+CREATE TABLE Requests (
+    RequestID SERIAL PRIMARY KEY,
+    Request TEXT
 )
 """
 
 # SQL to create Passenger Table
 create_passenger_table = """
-CREATE TABLE Passenger (
+CREATE TABLE Passengers (
     PassengerID SERIAL PRIMARY KEY,
     FirstName VARCHAR(255),
     LastName VARCHAR(255),
-    MobileNumber VARCHAR(15),
+    CellPhone VARCHAR(15),
+    TicketQuantity VARCHAR(15),
     EmailAddress VARCHAR(255),
-    ShuttleID INTEGER REFERENCES Shuttles(ShuttleID)
+    ShuttleID TEXT REFERENCES Shuttles(ShuttleID)
 )
 """
 
 # Execute the SQL statements
 try:
     cursor.execute(create_shuttles_table)
-    cursor.execute(create_status_table)
+    cursor.execute(create_request_table)
     cursor.execute(create_passenger_table)
     conn.commit()
     print("Tables created successfully.")
