@@ -24,7 +24,10 @@ CREATE TABLE Shuttles (
 create_request_table = """
 CREATE TABLE Requests (
     RequestID SERIAL PRIMARY KEY,
-    Request TEXT
+    FirstName TEXT,
+    LastName TEXT,
+    EmailAddress TEXT,
+    RequestDescription TEXT
 )
 """
 
