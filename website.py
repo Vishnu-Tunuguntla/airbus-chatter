@@ -212,5 +212,13 @@ elif page == "Upload Passengers":
                     if conn:
                         conn.close()
                         cursor.close()
+elif page == "View Data":
+    st.title("View Data")
+    # Use markdown to display a link that opens in a new tab
+    st.markdown(
+        "[Redirect to Google Sheets](https://docs.google.com/spreadsheets/d/1kCYoZR1U2K7InAW8YwXM8KvbpTDe5kVABEEesske1Ng/edit#gid=819535538)",
+        unsafe_allow_html=True,
+    )
+
 
 
